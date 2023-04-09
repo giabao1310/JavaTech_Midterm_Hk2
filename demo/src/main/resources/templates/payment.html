@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Payment</title>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Boostrap Core CSS-->
+        <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"> 
+        
+        <!-- Main CSS -->
+        <link rel="stylesheet" th:href="@{css/style.css}">
+
+
+        <link rel="stylesheet" th:href="@{css/payment.css}">
+        
+        <!-- Animate CSS -->
+        <link th:href="@{css/animate.css}" rel="stylesheet">
+        
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+         <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+        <!-- Font awesome -->
+        <link th:href="@{font-awesome-4.1.0/css/font-awesome.min.css}" rel="stylesheet">
+
+   </head>
+   <body>
+   
+   <!-- Start wrapper -->
+    <div class="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" th:href="@{/}"><img th:src="@{img/logo.png}" alt="logo"/></a>
+
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a th:href="@{/}">Home</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/product_list}">Product List</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/cart}">Cart</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/payment}">Payment</a>
+                        </li>
+                        </ul>
+
+                </div>
+                <!-- /navbar-collapse -->
+            </div>
+            <!-- /container -->
+        </nav>
+
+        <div class="container">
+            <h1>Thanh toán</h1>
+            <form th:action="@{/payment}" method="post">
+            <div class="form-group">
+                <label for="name">Họ và tên:</label>
+                <input type="text" id="name" th:name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Địa chỉ:</label>
+                <input type="text" id="address" th:name="address" required>
+            </div>
+            
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="total">Tổng tiền:</label>
+                <span th:text="${total}" style="color:#ffffff; padding-left: 3vh;"></span>
+            </div>
+            <div class="form-group">
+            <button type="submit">Thanh toán</button>
+            </form>
+        </div>
+
+        <!-- /navigation -->
+    </div>
+    <!-- End wrapper -->
+
+
+   <!-- Footer -->
+    <div class="intro4">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-sm-9 banner3-text wow fadeIn animated">
+                    <p class="subtitle fancy"><span>From Ton Duc Thang University</span></p>
+                    <div class="main-text">Trang web được tạo ra nhằm phục vụ cho việc học tập<br>
+                    Không vì mục đích kinh doanh.
+                    <div class="contact-info icons-top">
+                    <a href="#"><i class="fa fa-facebook fa-1x"></i></a>
+                    <a href="#" class="icons"><i class="fa fa-twitter fa-1x"></i></a>
+                    </div>
+                    </div>
+                    </div>
+            </div>    
+            </div>
+        </div>
+    </div>
+    <!-- /Footer -->
+
+      
+   <!-- jQuery Version 1.11.0 -->
+   <script th:src="@{/js/jquery-1.11.0.js}"></script>
+   <!-- Boostrap JS -->
+   <script th:src="@{/js/bootstrap.min.js}"></script>
+   <!-- Smooth scroll JS -->
+   <script th:src="@{/js/smoothscroll.js}"></script>
+   <!-- Wow JavaScript -->
+   <script th:src="@{/js/wow.js}"></script>
+    
+   <script>
+   new WOW().init();
+   </script>
+
+
+</body>
+</html>

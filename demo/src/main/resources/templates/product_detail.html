@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product Details</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--  Boostrap Core CSS-->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+    <link rel="stylesheet" th:href="@{/css/pro_detail.css}" />
+
+    <!-- Animate CSS -->
+    <link th:href="@{css/animate.css}" rel="stylesheet" />
+
+    <!-- Google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Slabo+27px"
+      rel="stylesheet"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Lato:300,400,700"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Start wrapper -->
+    <div class="wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/}"
+              ><img th:src="@{/img/logo.png}" alt="logo"
+            /></a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a th:href="@{/}">Home</a>
+              </li>
+              <li>
+                <a th:href="@{/product_list}">Product List</a>
+              </li>
+              <!-- <li>
+                        <a th:href="@{/product_detail}">Product details</a>
+                    </li> -->
+              <li>
+                <a th:href="@{/cart}">Cart</a>
+              </li>
+              <li>
+                <a th:href="@{/payment}">Payment</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /navbar-collapse -->
+        </div>
+        <!-- /container -->
+      </nav>
+      <!-- /navigation -->
+    </div>
+    <!-- End wrapper -->
+
+    <div class="pro-detail">
+      <div class="product-image">
+        <a th:href="@{/product_list/{id}(id=${product.id})}">
+          <img th:src="${product.imgURL}" alt="" />
+        </a>
+      </div>
+      <div class="product-info">
+        <a th:href="@{/product_list/{id}(id=${product.id})}">
+          <h1 th:text="${product.name}"></h1>
+        </a>
+        <p>
+          Đơn giá:
+          <a th:href="@{/product_list/{id}(id=${product.id})}">
+            <p th:text="${product.price}"></p>
+          </a>
+        </p>
+
+        <p>
+          Giới thiệu sản phẩm:
+          <a th:href="@{/product_list/{id}(id=${product.id})}">
+            <p th:text="${product.description}"></p>
+          </a>
+        </p>
+
+        <div class="add-to-cart">
+          <p>Số lượng:</p>
+          <form th:action="@{/cart}" method="post">
+            <input type="hidden" name="productId" th:value="${product.id}" />
+            <input type="number" name="productQuantity" />
+            <button type="submit">Add to Cart</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="intro4">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-sm-9 banner3-text wow fadeIn animated">
+              <p class="subtitle fancy">
+                <span>From Ton Duc Thang University</span>
+              </p>
+              <div class="main-text">
+                Trang web được tạo ra nhằm phục vụ cho việc học tập<br />
+                Không vì mục đích kinh doanh.
+                <div class="contact-info icons-top">
+                  <a href="#"><i class="fa fa-facebook fa-1x"></i></a>
+                  <a href="#" class="icons"
+                    ><i class="fa fa-twitter fa-1x"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Footer -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script th:src="@{/js/jquery-1.11.0.js}"></script>
+    <!-- Boostrap JS -->
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- Smooth scroll JS -->
+    <script th:src="@{/js/smoothscroll.js}"></script>
+    <!-- Wow JavaScript -->
+    <script th:src="@{/js/wow.js}"></script>
+
+    <script th:src="@{js/script.js}"></script>
+
+    <script>
+      new WOW().init();
+    </script>
+  </body>
+</html>

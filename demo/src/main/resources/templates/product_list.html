@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product List</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Boostrap Core CSS -->
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" th:href="@{css/style.css}" />
+
+    <!-- Animate CSS -->
+    <link th:href="@{css/pro_list.css}" rel="stylesheet" />
+
+    <!-- Google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Slabo+27px"
+      rel="stylesheet"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Lato:300,400,700"
+      rel="stylesheet"
+    />
+    
+  </head>
+  <body>
+    <!-- Start wrapper -->
+    <div class="wrapper">
+      <!-- Navigation -->
+      <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/}"
+              ><img th:src="@{img/logo.png}" alt="logo"
+            /></a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a th:href="@{/}">Home</a>
+              </li>
+              <li>
+                <a th:href="@{/product_list}">Product List</a>
+              </li>
+              <!-- <li>
+                <a th:href="@{/product_detail}">Product details</a>
+              </li> -->
+              <li>
+                <a th:href="@{/cart}">Cart</a>
+              </li>
+              <li>
+                <a th:href="@{/payment}">Payment</a>
+              </li>
+            </ul>
+          </div>
+          <!-- /navbar-collapse -->
+        </div>
+        <!-- /container -->
+      </nav>
+      <!-- /navigation -->
+    </div>
+    <!-- End wrapper -->
+
+    <h1 style="padding-bottom: 40px;">Sản phẩm của chúng tôi</h1>
+    <ul class="product-list">
+      
+      <li th:each="product : ${products}">
+        <a th:href="@{/product_list/{id}(id=${product.id})}"
+          ><img th:src="${product.imgURL}" alt=""
+        /></a>
+        <h3 style="color: rgb(255, 248, 248); font-weight: bold;" th:text="${product.name}"></h3>
+        <p style="color: rgb(217, 243, 207); font-weight: bold;" th:text="${product.description}"></p>
+        <p style="color: rgb(217, 243, 207); font-weight: bold;" th:text="${product.price}"></p>
+      </li>
+    </ul>
+
+    <!-- Footer -->
+    <div class="intro4">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-sm-9 banner3-text wow fadeIn animated">
+              <p class="subtitle fancy">
+                <span>From Ton Duc Thang University</span>
+              </p>
+              <div class="main-text">
+                Trang web được tạo ra nhằm phục vụ cho việc học tập<br />
+                Không vì mục đích kinh doanh.
+                <div class="contact-info icons-top">
+                  <a href="#"><i class="fa fa-facebook fa-1x"></i></a>
+                  <a href="#" class="icons"
+                    ><i class="fa fa-twitter fa-1x"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Footer -->
+
+    <!-- jQuery Version 1.11.0 -->
+    <script th:src="@{/js/jquery-1.11.0.js}"></script>
+    <!-- Boostrap JS -->
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- Smooth scroll JS -->
+    <script th:src="@{/js/smoothscroll.js}"></script>
+    <!-- Wow JavaScript -->
+    <script th:src="@{/js/wow.js}"></script>
+
+    <script>
+      new WOW().init();
+    </script>
+  </body>
+</html>

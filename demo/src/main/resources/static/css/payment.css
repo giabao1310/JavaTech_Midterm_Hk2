@@ -1,0 +1,50 @@
+.container h1{
+    margin-bottom: 40px;
+    color: #ffe8e8;
+} 
+
+form {
+display: flex;
+flex-direction: column;
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+label {
+    display: inline-block;
+    width: 120px;
+    text-align: left;
+    margin-left: 45vh;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+padding: 10px;
+font-size: 16px;
+border: none;
+border-radius: 5px;
+box-shadow: 0 0 5px #ccc;
+width: 30%;
+}
+
+button[type="submit"] {
+padding: 10px;
+font-size: 16px;
+border: none;
+border-radius: 5px;
+background-color: #007bff;
+color: #fff;
+cursor: pointer;
+width: 41%;
+margin: 20px 0 50px 45vh;
+}
+
+button[type="submit"]:hover {
+background-color: #0056b3;
+
+}
